@@ -1,688 +1,653 @@
+@model List<EcoSwap.Models.Product>
 
-  <style>
-    :root {
-      --bg: #ffffff;
-      --bg-soft: #fafbfc;
-      --panel: #f8f9fa;
-      --border: #e1e5e9;
-      --border-light: #f0f2f5;
-      --muted: #6b7280;
-      --text: #1f2937;
-      --text-secondary: #4b5563;
-      --primary: #059669;
-      --primary-light: #d1fae5;
-      --primary-hover: #047857;
-      --accent: #2563eb;
-      --accent-light: #dbeafe;
-      --danger: #dc2626;
-      --warning: #d97706;
-      --radius: 12px;
-      --radius-sm: 8px;
-      --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      --shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.08);
-    }
-    * { box-sizing: border-box }
-    html, body { height: 100% }
-    body {
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      font-size: 14px;
-    }
-    a { color: inherit; text-decoration: none }
-    img { max-width: 100%; display: block }
-    .container { width: min(1200px, 92%); margin: 0 auto }
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-soft: #fafbfc;
+    --panel: #f8f9fa;
+    --border: #e1e5e9;
+    --border-light: #f0f2f5;
+    --muted: #6b7280;
+    --text: #1f2937;
+    --text-secondary: #4b5563;
+    --primary: #059669;
+    --primary-light: #d1fae5;
+    --primary-hover: #047857;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --danger: #dc2626;
+    --warning: #d97706;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
 
-    /* Header */
-    header {
-      position: sticky; top: 0; z-index: 50;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 0 }
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 18px; color: var(--text) }
-    .brand .logo {
-      width: 32px; height: 32px; border-radius: var(--radius-sm);
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      display: flex; align-items: center; justify-content: center;
-      color: white; font-weight: 600; font-size: 14px;
-    }
-    nav ul { list-style: none; display: flex; gap: 8px; padding: 0; margin: 0 }
-    nav a { 
-      color: var(--text-secondary); 
-      padding: 8px 16px; 
-      border-radius: var(--radius-sm); 
-      font-weight: 500;
-      transition: all 0.2s ease;
-    }
-    nav a:hover, nav a.active { background: var(--panel); color: var(--text) }
-    .nav-cta { display: flex; gap: 8px; align-items: center }
-    .cart-btn { position: relative }
-    .cart-count {
-      position: absolute; top: -6px; right: -6px;
-      background: var(--primary); color: white;
-      font-size: 10px; font-weight: 600;
-      padding: 2px 6px; border-radius: 10px;
-      min-width: 18px; text-align: center;
-    }
-    .btn { 
-      cursor: pointer; border: 0; border-radius: var(--radius-sm); 
-      padding: 10px 16px; font-weight: 600; font-size: 14px;
-      transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 8px;
-    }
-    .btn-primary { background: var(--primary); color: white }
-    .btn-primary:hover { background: var(--primary-hover) }
-    .btn-ghost { 
-      background: transparent; color: var(--text-secondary); 
-      border: 1px solid var(--border);
-    }
-    .btn-ghost:hover { background: var(--panel); color: var(--text) }
-    .btn-sm { padding: 6px 12px; font-size: 12px }
+  * {
+    box-sizing: border-box
+  }
 
-    /* Shop Header */
-    .shop-header { padding: 32px 0; background: var(--bg-soft) }
-    .shop-title { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px }
-    .shop-filters { 
-      display: grid; grid-template-columns: 1fr auto auto auto; 
-      gap: 16px; align-items: end;
+  html,
+  body {
+    height: 100%
+  }
+
+  body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none
+  }
+
+  img {
+    max-width: 100%;
+    display: block
+  }
+
+  .container {
+    width: min(1200px, 92%);
+    margin: 0 auto
+  }
+
+  .btn {
+    cursor: pointer;
+    border: 0;
+    border-radius: var(--radius-sm);
+    padding: 10px 16px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-primary {
+    background: var(--primary);
+    color: white
+  }
+
+  .btn-primary:hover {
+    background: var(--primary-hover)
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+  }
+
+  .btn-ghost:hover {
+    background: var(--panel);
+    color: var(--text)
+  }
+
+  .btn-sm {
+    padding: 6px 12px;
+    font-size: 12px
+  }
+
+  /* Shop Header */
+  .shop-header {
+    padding: 32px 0;
+    background: var(--bg-soft)
+  }
+
+  .shop-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px
+  }
+
+  .shop-filters {
+    display: grid;
+    grid-template-columns: 1fr auto auto auto;
+    gap: 16px;
+    align-items: end;
+  }
+
+  /* Product Grid */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px
+  }
+
+  .product-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.2s ease;
+  }
+
+  .product-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px)
+  }
+
+  .product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .product-info {
+    padding: 20px
+  }
+
+  .product-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0
+  }
+
+  .stars {
+    color: #fbbf24;
+    font-size: 14px
+  }
+
+  .price {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 12px 0
+  }
+
+  .price-original {
+    text-decoration: line-through;
+    color: var(--muted);
+    font-size: 16px;
+    margin-left: 8px
+  }
+
+  .impact-badge {
+    background: var(--primary-light);
+    color: var(--primary);
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    font-size: 11px;
+    font-weight: 600;
+    margin: 8px 0;
+    display: inline-block;
+  }
+
+  /* Filters */
+  .filter-section {
+    margin-bottom: 24px
+  }
+
+  .filter-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px
+  }
+
+  .filter-tag {
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: var(--bg);
+  }
+
+  .filter-tag:hover {
+    background: var(--panel)
+  }
+
+  .filter-tag.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary)
+  }
+
+  /* Cart Sidebar */
+  .cart-sidebar {
+    position: fixed;
+    right: -400px;
+    top: 0;
+    width: 400px;
+    height: 100vh;
+    background: var(--bg);
+    border-left: 1px solid var(--border);
+    z-index: 100;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .cart-sidebar.open {
+    right: 0
+  }
+
+  .cart-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--panel);
+  }
+
+  .cart-item {
+    display: flex;
+    gap: 12px;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .cart-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-sm);
+    object-fit: cover
+  }
+
+  .cart-total {
+    padding: 24px;
+    border-top: 1px solid var(--border);
+    background: var(--panel);
+  }
+
+  /* Sections */
+  section {
+    padding: 32px 0
+  }
+
+  .grid {
+    display: grid;
+    gap: 20px
+  }
+
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr)
+  }
+
+  .card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+  }
+
+  /* Form elements */
+  input,
+  select {
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+  }
+
+  input:focus,
+  select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+  }
+
+  /* Responsive */
+  @@media (max-width: 960px) {
+    .shop-filters {
+      grid-template-columns: 1fr;
+      gap: 12px
     }
 
-    /* Product Grid */
-    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px }
-    .product-card { 
-      background: var(--bg); border: 1px solid var(--border); 
-      border-radius: var(--radius); overflow: hidden;
-      transition: all 0.2s ease;
-    }
-    .product-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px) }
-    .product-image { 
-      width: 100%; height: 200px; object-fit: cover; 
-      border-bottom: 1px solid var(--border-light);
-    }
-    .product-info { padding: 20px }
-    .product-rating { display: flex; align-items: center; gap: 8px; margin: 8px 0 }
-    .stars { color: #fbbf24; font-size: 14px }
-    .price { font-size: 20px; font-weight: 700; color: var(--text); margin: 12px 0 }
-    .price-original { text-decoration: line-through; color: var(--muted); font-size: 16px; margin-left: 8px }
-    .impact-badge { 
-      background: var(--primary-light); color: var(--primary); 
-      padding: 4px 8px; border-radius: var(--radius-sm); 
-      font-size: 11px; font-weight: 600; margin: 8px 0;
-      display: inline-block;
-    }
-
-    /* Filters */
-    .filter-section { margin-bottom: 24px }
-    .filter-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px }
-    .filter-tag { 
-      padding: 6px 12px; border: 1px solid var(--border); 
-      border-radius: 20px; font-size: 13px; cursor: pointer;
-      transition: all 0.2s ease; background: var(--bg);
-    }
-    .filter-tag:hover { background: var(--panel) }
-    .filter-tag.active { background: var(--primary); color: white; border-color: var(--primary) }
-
-    /* Cart Sidebar */
     .cart-sidebar {
-      position: fixed; right: -400px; top: 0; width: 400px; height: 100vh;
-      background: var(--bg); border-left: 1px solid var(--border);
-      z-index: 100; transition: right 0.3s ease; overflow-y: auto;
-      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+      width: 100vw;
+      right: -100vw
     }
-    .cart-sidebar.open { right: 0 }
-    .cart-header { 
-      padding: 20px 24px; border-bottom: 1px solid var(--border);
-      display: flex; justify-content: space-between; align-items: center;
-      background: var(--panel);
-    }
-    .cart-item { 
-      display: flex; gap: 12px; padding: 16px 24px; 
-      border-bottom: 1px solid var(--border-light);
-    }
-    .cart-item img { width: 60px; height: 60px; border-radius: var(--radius-sm); object-fit: cover }
-    .cart-total { 
-      padding: 24px; border-top: 1px solid var(--border);
-      background: var(--panel);
+  }
+
+  @@media (max-width: 640px) {
+    .product-grid {
+      grid-template-columns: 1fr
     }
 
-    /* Sections */
-    section { padding: 32px 0 }
-    .grid { display: grid; gap: 20px }
-    .grid-2 { grid-template-columns: repeat(2, 1fr) }
-    .card { 
-      background: var(--bg); border: 1px solid var(--border); 
-      border-radius: var(--radius); padding: 24px;
+    .shop-title {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px
     }
+  }
 
-    /* Form elements */
-    input, select { 
-      background: var(--bg); color: var(--text); 
-      border: 1px solid var(--border); border-radius: var(--radius-sm); 
-      padding: 10px 12px; font-size: 14px;
-      transition: all 0.2s ease;
-    }
-    input:focus, select:focus {
-      outline: none; border-color: var(--primary); 
-      box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
-    }
+  /* Overlay */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 99;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
 
-    /* Responsive */
-    @@media (max-width: 960px) {
-      .shop-filters { grid-template-columns: 1fr; gap: 12px }
-      .cart-sidebar { width: 100vw; right: -100vw }
-      nav ul { display: none }
-      .menu-toggle { display: inline-flex }
-    }
-    @@media (max-width: 640px) {
-      .product-grid { grid-template-columns: 1fr }
-      .shop-title { flex-direction: column; align-items: flex-start; gap: 16px }
-    }
-    @@media (min-width: 961px) { .menu-toggle { display: none } }
+  .overlay.show {
+    opacity: 1;
+    pointer-events: all
+  }
 
-    /* Overlay */
-    .overlay {
-      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-      background: rgba(0, 0, 0, 0.3); z-index: 99; opacity: 0;
-      pointer-events: none; transition: opacity 0.3s ease;
-    }
-    .overlay.show { opacity: 1; pointer-events: all }
+  /* Toast */
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--text);
+    color: white;
+    padding: 12px 20px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 500;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 200;
+  }
 
-    /* Toast */
-    .toast {
-      position: fixed; bottom: 24px; right: 24px; 
-      background: var(--text); color: white; 
-      padding: 12px 20px; border-radius: var(--radius);
-      font-size: 14px; font-weight: 500;
-      transform: translateY(100px); opacity: 0;
-      transition: all 0.3s ease; z-index: 200;
-    }
-    .toast.show { transform: translateY(0); opacity: 1 }
-  </style>
-    <section class="shop-header">
-      <div class="container">
-        <div class="shop-title">
-          <div>
-            <h1 style="margin: 0 0 8px; font-size: 32px; font-weight: 700">Sustainable Shop</h1>
-            <p style="color: var(--text-secondary); margin: 0; font-size: 16px">Eco-friendly alternatives for everyday items • Free shipping on orders over ৳1,500</p>
-          </div>
-          <div style="display: flex; gap: 12px; align-items: center">
-            <span class="impact-badge">🌱 Collective Impact: 2,847kg plastic saved</span>
-          </div>
-        </div>
+  .toast.show {
+    transform: translateY(0);
+    opacity: 1
+  }
+</style>
 
-        <div class="shop-filters">
-          <div style="display: flex; gap: 12px">
-            <input type="text" id="searchProducts" placeholder="Search products..." oninput="filterProducts()" 
-                   style="flex: 1; min-width: 250px" />
-          </div>
-          <select id="categoryFilter" onchange="filterProducts()">
-            <option value="">All Categories</option>
-            <option value="Personal Care">Personal Care</option>
-            <option value="Kitchen">Kitchen & Dining</option>
-            <option value="Cleaning">Cleaning</option>
-            <option value="Office">Office & Study</option>
-            <option value="Fashion">Fashion & Accessories</option>
-          </select>
-          <select id="priceFilter" onchange="filterProducts()">
-            <option value="">All Prices</option>
-            <option value="0-500">৳0 - ৳500</option>
-            <option value="500-1000">৳500 - ৳1,000</option>
-            <option value="1000-2000">৳1,000 - ৳2,000</option>
-            <option value="2000+">৳2,000+</option>
-          </select>
-          <select id="sortFilter" onchange="filterProducts()">
-            <option value="featured">Featured</option>
-            <option value="price-low">Price: Low to High</option>
-            <option value="price-high">Price: High to Low</option>
-            <option value="rating">Highest Rated</option>
-            <option value="impact">Most Impact</option>
-          </select>
-        </div>
-
-        <div class="filter-section">
-          <div style="font-weight: 600; margin-bottom: 8px">Quick Filters:</div>
-          <div class="filter-tags">
-            <span class="filter-tag active" onclick="toggleFilter(this, 'all')">All Products</span>
-            <span class="filter-tag" onclick="toggleFilter(this, 'bestseller')">🔥 Bestsellers</span>
-            <span class="filter-tag" onclick="toggleFilter(this, 'new')">✨ New Arrivals</span>
-            <span class="filter-tag" onclick="toggleFilter(this, 'local')">📍 Local Brands</span>
-            <span class="filter-tag" onclick="toggleFilter(this, 'high-impact')">🌍 High Impact</span>
-            <span class="filter-tag" onclick="toggleFilter(this, 'budget')">💰 Budget Friendly</span>
-          </div>
-        </div>
+<section class="shop-header">
+  <div class="container">
+    <div class="shop-title">
+      <div>
+        <h1 style="margin: 0 0 8px; font-size: 32px; font-weight: 700">Sustainable Shop</h1>
+        <p style="color: var(--text-secondary); margin: 0; font-size: 16px">Eco-friendly alternatives for everyday items
+          • Free shipping on orders over ৳1,500</p>
       </div>
-    </section>
+      <div style="display: flex; gap: 12px; align-items: center">
+        <span class="impact-badge">🌱 Collective Impact: 2,847kg plastic saved</span>
+      </div>
+    </div>
 
-    <!-- Products -->
-    <section id="products" style="padding-top: 0">
-      <div class="container">
-        <div style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center">
-          <div>
-            <span id="productCount">24</span> products found
-            <span id="filterStatus" style="color: var(--muted)"></span>
-          </div>
-          <button class="btn btn-ghost btn-sm" onclick="clearFilters()">Clear Filters</button>
+    @using (Html.BeginForm("Shop", "Home", FormMethod.Get))
+    {
+      <div class="shop-filters">
+        <div style="display: flex; gap: 12px">
+          @Html.TextBox("searchTerm", ViewBag.CurrentSearch as string, new { placeholder = "Search products...", style = "flex: 1; min-width: 250px" })
         </div>
+        @Html.DropDownList("category", new SelectList(new[] {
+          new { Value = "", Text = "All Categories" },
+          new { Value = "Personal Care", Text = "Personal Care" },
+          new { Value = "Kitchen", Text = "Kitchen & Dining" },
+          new { Value = "Cleaning", Text = "Cleaning" },
+          new { Value = "Office", Text = "Office & Study" },
+          new { Value = "Fashion", Text = "Fashion & Accessories" }
+        }, "Value", "Text", ViewBag.CurrentCategory), new { onchange = "this.form.submit()" })
         
-        <div id="productGrid" class="product-grid"></div>
+        @Html.DropDownList("priceRange", new SelectList(new[] {
+          new { Value = "", Text = "All Prices" },
+          new { Value = "0-500", Text = "৳0 - ৳500" },
+          new { Value = "500-1000", Text = "৳500 - ৳1,000" },
+          new { Value = "1000-2000", Text = "৳1,000 - ৳2,000" },
+          new { Value = "2000+", Text = "৳2,000+" }
+        }, "Value", "Text", ViewBag.CurrentPriceRange), new { onchange = "this.form.submit()" })
+        
+        @Html.DropDownList("sortBy", new SelectList(new[] {
+          new { Value = "featured", Text = "Featured" },
+          new { Value = "price-low", Text = "Price: Low to High" },
+          new { Value = "price-high", Text = "Price: High to Low" },
+          new { Value = "rating", Text = "Highest Rated" },
+          new { Value = "impact", Text = "Most Impact" }
+        }, "Value", "Text", ViewBag.CurrentSort), new { onchange = "this.form.submit()" })
       </div>
-    </section>
+    }
 
-    <!-- Featured Categories -->
-    <section id="categories" style="background: var(--bg-soft); margin: 48px -50vw 0; padding: 56px 50vw">
-      <div class="container">
-        <h2 style="text-align: center; margin-bottom: 40px; font-size: 28px">Shop by Category</h2>
-        <div class="grid grid-2" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))">
-          <div class="card" style="text-align: center; cursor: pointer" onclick="filterByCategory('Personal Care')">
-            <div style="font-size: 48px; margin-bottom: 16px">🧴</div>
-            <h3>Personal Care</h3>
-            <p style="color: var(--muted); margin: 8px 0 0">Toothbrushes, shampoo bars, skincare</p>
-          </div>
-          <div class="card" style="text-align: center; cursor: pointer" onclick="filterByCategory('Kitchen')">
-            <div style="font-size: 48px; margin-bottom: 16px">🍽️</div>
-            <h3>Kitchen & Dining</h3>
-            <p style="color: var(--muted); margin: 8px 0 0">Reusable containers, bottles, utensils</p>
-          </div>
-          <div class="card" style="text-align: center; cursor: pointer" onclick="filterByCategory('Cleaning')">
-            <div style="font-size: 48px; margin-bottom: 16px">🧽</div>
-            <h3>Cleaning</h3>
-            <p style="color: var(--muted); margin: 8px 0 0">Eco sponges, natural detergents</p>
-          </div>
-          <div class="card" style="text-align: center; cursor: pointer" onclick="filterByCategory('Office')">
-            <div style="font-size: 48px; margin-bottom: 16px">📝</div>
-            <h3>Office & Study</h3>
-            <p style="color: var(--muted); margin: 8px 0 0">Recycled notebooks, bamboo pens</p>
-          </div>
-        </div>
+    <div class="filter-section">
+      <div style="font-weight: 600; margin-bottom: 8px">Quick Filters:</div>
+      <div class="filter-tags">
+        @Html.ActionLink("All Products", "Shop", "Home", null, new { @class = ViewBag.CurrentFilter == null ? "filter-tag active" : "filter-tag" })
+        @Html.ActionLink("🔥 Bestsellers", "Shop", "Home", new { filter = "bestseller" }, new { @class = ViewBag.CurrentFilter == "bestseller" ? "filter-tag active" : "filter-tag" })
+        @Html.ActionLink("✨ New Arrivals", "Shop", "Home", new { filter = "new" }, new { @class = ViewBag.CurrentFilter == "new" ? "filter-tag active" : "filter-tag" })
+        @Html.ActionLink("📍 Local Brands", "Shop", "Home", new { filter = "local" }, new { @class = ViewBag.CurrentFilter == "local" ? "filter-tag active" : "filter-tag" })
+        @Html.ActionLink("🌍 High Impact", "Shop", "Home", new { filter = "high-impact" }, new { @class = ViewBag.CurrentFilter == "high-impact" ? "filter-tag active" : "filter-tag" })
+        @Html.ActionLink("💰 Budget Friendly", "Shop", "Home", new { filter = "budget" }, new { @class = ViewBag.CurrentFilter == "budget" ? "filter-tag active" : "filter-tag" })
       </div>
-    </section>
-  </main>
-
-  <!-- Cart Sidebar -->
-  <div class="overlay" id="cartOverlay" onclick="toggleCart()"></div>
-  <div class="cart-sidebar" id="cartSidebar">
-    <div class="cart-header">
-      <h3 style="margin: 0">Shopping Cart</h3>
-      <button class="btn btn-ghost btn-sm" onclick="toggleCart()">✕</button>
-    </div>
-    <div id="cartItems">
-      <div style="padding: 40px 24px; text-align: center; color: var(--muted)">
-        Your cart is empty
-        <div style="margin-top: 16px">
-          <button class="btn btn-primary" onclick="toggleCart()">Continue Shopping</button>
-        </div>
-      </div>
-    </div>
-    <div class="cart-total">
-      <div style="display: flex; justify-content: space-between; margin-bottom: 16px">
-        <span>Subtotal:</span>
-        <span id="cartSubtotal" style="font-weight: 600">৳0</span>
-      </div>
-      <div style="display: flex; justify-content: space-between; margin-bottom: 16px; color: var(--muted); font-size: 13px">
-        <span>Plastic saved:</span>
-        <span id="cartImpact" style="color: var(--primary); font-weight: 600">0kg/month</span>
-      </div>
-      <button class="btn btn-primary" style="width: 100%; justify-content: center" onclick="checkout()">
-        Checkout
-      </button>
     </div>
   </div>
+</section>
 
-  <!-- Toast -->
-  <div class="toast" id="toast"></div>
-
-  <script>
-    // Product data
-    const PRODUCTS = [
-      { 
-        id: 1, name: 'Bamboo Toothbrush Set', category: 'Personal Care', 
-        price: 450, originalPrice: 650, rating: 4.8, reviews: 124,
-        impactKg: 0.3, img: 'https://images.unsplash.com/photo-1585238342028-4bbc3a8d7b4a',
-        tags: ['bestseller', 'local'], description: 'Biodegradable bamboo handle with soft bristles'
-      },
-      { 
-        id: 2, name: 'Stainless Steel Water Bottle', category: 'Kitchen', 
-        price: 1200, rating: 4.9, reviews: 89,
-        impactKg: 1.2, img: 'https://images.unsplash.com/photo-1545167622-3a6ac756afa4',
-        tags: ['high-impact', 'new'], description: '500ml insulated bottle, keeps drinks cold for 24hrs'
-      },
-      { 
-        id: 3, name: 'Natural Shampoo Bar', category: 'Personal Care', 
-        price: 350, rating: 4.6, reviews: 156,
-        impactKg: 0.5, img: 'https://images.unsplash.com/photo-1604335399105-0e0f2c564f5a',
-        tags: ['budget', 'local'], description: 'Plastic-free shampoo bar, lasts 2-3 months'
-      },
-      { 
-        id: 4, name: 'Organic Cotton Tote Bag', category: 'Fashion', 
-        price: 800, rating: 4.7, reviews: 67,
-        impactKg: 0.4, img: 'https://images.unsplash.com/photo-1541921671-01dfd297f05b',
-        tags: ['bestseller'], description: 'Durable cotton tote, machine washable'
-      },
-      { 
-        id: 5, name: 'Compostable Kitchen Sponge', category: 'Cleaning', 
-        price: 250, rating: 4.5, reviews: 43,
-        impactKg: 0.2, img: 'https://images.unsplash.com/photo-1593055752832-9f37a4e0accd',
-        tags: ['budget', 'high-impact'], description: 'Made from coconut fiber, fully compostable'
-      },
-      { 
-        id: 6, name: 'Glass Food Storage Set', category: 'Kitchen', 
-        price: 1800, originalPrice: 2200, rating: 4.8, reviews: 92,
-        impactKg: 0.6, img: 'https://images.unsplash.com/photo-1606259454390-9f0a9ec6f3b0',
-        tags: ['bestseller'], description: 'Set of 4 borosilicate glass containers with bamboo lids'
-      },
-      { 
-        id: 7, name: 'Bamboo Desk Organizer', category: 'Office', 
-        price: 950, rating: 4.6, reviews: 38,
-        impactKg: 0.3, img: 'https://images.unsplash.com/photo-1571974599782-87624638275e',
-        tags: ['new', 'local'], description: 'Multi-compartment organizer for sustainable workspace'
-      },
-      { 
-        id: 8, name: 'Recycled Paper Notebook', category: 'Office', 
-        price: 320, rating: 4.4, reviews: 71,
-        impactKg: 0.1, img: 'https://images.unsplash.com/photo-1544816155-12df9643f363',
-        tags: ['budget'], description: '100% recycled paper, dotted pages'
-      }
-    ];
-
-    let cart = [];
-    let filteredProducts = [...PRODUCTS];
-    let activeFilters = new Set(['all']);
-
-    // Helper functions
-    const $ = (q) => document.querySelector(q);
-
-    function showToast(message) {
-      const toast = $('#toast');
-      toast.textContent = message;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 3000);
-    }
-
-    function toggleMenu(){
-      const nav = document.getElementById('mainNav');
-      nav.style.display = nav.style.display === 'block' ? '' : 'block';
-    }
-
-    // Cart functions
-    function toggleCart() {
-      const sidebar = $('#cartSidebar');
-      const overlay = $('#cartOverlay');
-      sidebar.classList.toggle('open');
-      overlay.classList.toggle('show');
-    }
-
-    function addToCart(productId) {
-      const product = PRODUCTS.find(p => p.id === productId);
-      const existingItem = cart.find(item => item.id === productId);
-      
-      if (existingItem) {
-        existingItem.quantity += 1;
-      } else {
-        cart.push({ ...product, quantity: 1 });
-      }
-      
-      updateCartUI();
-      showToast(`${product.name} added to cart!`);
-    }
-
-    function removeFromCart(productId) {
-      cart = cart.filter(item => item.id !== productId);
-      updateCartUI();
-    }
-
-    function updateQuantity(productId, quantity) {
-      const item = cart.find(item => item.id === productId);
-      if (item) {
-        item.quantity = Math.max(0, quantity);
-        if (item.quantity === 0) {
-          removeFromCart(productId);
+<!-- Products -->
+<section id="products" style="padding-top: 0">
+  <div class="container">
+    <div style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center">
+      <div>
+        <span>@Model.Count()</span> products found
+        @if (!string.IsNullOrEmpty(ViewBag.CurrentSearch as string) || !string.IsNullOrEmpty(ViewBag.CurrentCategory as string) || !string.IsNullOrEmpty(ViewBag.CurrentFilter as string))
+        {
+          <span style="color: var(--muted)">• Filters applied</span>
         }
-      }
-      updateCartUI();
-    }
+      </div>
+      @Html.ActionLink("Clear Filters", "Shop", "Home", null, new { @class = "btn btn-ghost btn-sm" })
+    </div>
 
-    function updateCartUI() {
-      const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-      const cartSubtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-      const cartImpact = cart.reduce((sum, item) => sum + (item.impactKg * item.quantity), 0);
-
-      $('#cartCount').textContent = cartCount;
-      $('#cartSubtotal').textContent = `৳${cartSubtotal.toLocaleString()}`;
-      $('#cartImpact').textContent = `${cartImpact.toFixed(1)}kg/month`;
-
-      const cartItems = $('#cartItems');
-      if (cart.length === 0) {
-        cartItems.innerHTML = `
-          <div style="padding: 40px 24px; text-align: center; color: var(--muted)">
-            Your cart is empty
-            <div style="margin-top: 16px">
-              <button class="btn btn-primary" onclick="toggleCart()">Continue Shopping</button>
-            </div>
-          </div>`;
-      } else {
-        cartItems.innerHTML = cart.map(item => `
-          <div class="cart-item">
-            <img src="${item.img}&auto=format&fit=crop&w=120&q=60" alt="${item.name}" />
-            <div style="flex: 1">
-              <h4 style="margin: 0 0 4px; font-size: 14px">${item.name}</h4>
-              <div style="color: var(--muted); font-size: 13px; margin-bottom: 8px">৳${item.price.toLocaleString()}</div>
-              <div style="display: flex; align-items: center; gap: 8px">
-                <button class="btn btn-ghost btn-sm" onclick="updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
-                <span style="min-width: 20px; text-align: center">${item.quantity}</span>
-                <button class="btn btn-ghost btn-sm" onclick="updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
-                <button class="btn btn-ghost btn-sm" onclick="removeFromCart(${item.id})" style="margin-left: auto; color: var(--danger)">🗑️</button>
-              </div>
-            </div>
-          </div>
-        `).join('');
-      }
-    }
-
-    function checkout() {
-      if (cart.length === 0) return;
-      showToast('Checkout feature coming soon!');
-    }
-
-    // Product filtering and display
-    function renderProducts(products = filteredProducts) {
-      const grid = $('#productGrid');
-      grid.innerHTML = '';
-      
-      products.forEach(product => {
-        const el = document.createElement('article');
-        el.className = 'product-card';
-        el.innerHTML = `
-          <img src="${product.img}&auto=format&fit=crop&w=400&h=300&q=80" alt="${product.name}" class="product-image" />
+    <div class="product-grid">
+      @foreach (var product in Model)
+      {
+        <article class="product-card">
+          <a href="@Url.Action("Details", "Home", new { id = product.Id })" style="text-decoration: none; color: inherit;">
+            <img src="/images/@product.ImageFileName" class="product-image" alt="@product.Name" />
+          </a>
           <div class="product-info">
             <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px">
-              <h3 style="margin: 0; font-size: 16px; flex: 1">${product.name}</h3>
-              ${product.tags.includes('bestseller') ? '<span style="color: #ef4444; font-size: 16px">🔥</span>' : ''}
-              ${product.tags.includes('new') ? '<span style="color: var(--accent); font-size: 16px">✨</span>' : ''}
+              <h3 style="margin: 0; font-size: 16px; flex: 1">@product.Name</h3>
+              @if (product.Tags != null && product.Tags.Contains("bestseller"))
+              {
+                <span style="color: #ef4444; font-size: 16px">🔥</span>
+              }
+              @if (product.Tags != null && product.Tags.Contains("new"))
+              {
+                <span style="color: var(--accent); font-size: 16px">✨</span>
+              }
             </div>
-            <div style="color: var(--muted); font-size: 13px; margin-bottom: 8px">${product.category}</div>
-            <p style="color: var(--text-secondary); font-size: 13px; margin: 0 0 12px; line-height: 1.4">${product.description}</p>
+            <div style="color: var(--muted); font-size: 13px; margin-bottom: 8px">@product.Category</div>
+            <p style="color: var(--text-secondary); font-size: 13px; margin: 0 0 12px; line-height: 1.4">@product.Description</p>
             
             <div class="product-rating">
-              <span class="stars">${'★'.repeat(Math.floor(product.rating))}${product.rating % 1 ? '☆' : ''}</span>
-              <span style="font-size: 13px; color: var(--muted)">${product.rating} (${product.reviews} reviews)</span>
+              <span class="stars">
+                @for (int i = 0; i < Math.Floor(product.Rating); i++)
+                {
+                  <text>★</text>
+                }
+                @if (product.Rating % 1 != 0)
+                {
+                  <text>☆</text>
+                }
+              </span>
+              <span style="font-size: 13px; color: var(--muted)">@product.Rating.ToString("F1") (@product.ReviewCount reviews)</span>
             </div>
             
-            <div class="impact-badge">Saves ${product.impactKg}kg plastic/month</div>
+            <div class="impact-badge">Saves @product.ImpactKg.ToString("F1")kg plastic/month</div>
             
             <div class="price">
-              ৳${product.price.toLocaleString()}
-              ${product.originalPrice ? `<span class="price-original">৳${product.originalPrice.toLocaleString()}</span>` : ''}
+              ৳@product.Price.ToString("N0")
+              @if (product.OriginalPrice.HasValue && product.OriginalPrice > product.Price)
+              {
+                <span class="price-original">৳@product.OriginalPrice.Value.ToString("N0")</span>
+              }
             </div>
             
             <div style="display: flex; gap: 8px; margin-top: 16px">
-              <button class="btn btn-primary" style="flex: 1; justify-content: center" onclick="addToCart(${product.id})">
+              <button class="btn btn-primary add-to-cart-btn" style="flex: 1; justify-content: center" data-product-id="@product.Id">
                 Add to Cart
               </button>
-              <button class="btn btn-ghost btn-sm" onclick="viewProduct(${product.id})" aria-label="View details">👁️</button>
+              <a href="@Url.Action("Details", "Home", new { id = product.Id })" class="btn btn-ghost btn-sm" title="View details">👁️</a>
             </div>
-          </div>`;
-        grid.appendChild(el);
+          </div>
+        </article>
+      }
+    </div>
+    
+    @if (!Model.Any())
+    {
+      <div style="text-align: center; padding: 40px; color: var(--muted)">
+        <div style="font-size: 48px; margin-bottom: 16px">🔍</div>
+        <h3>No products found</h3>
+        <p>Try adjusting your filters or search terms.</p>
+        @Html.ActionLink("View All Products", "Shop", "Home", null, new { @class = "btn btn-primary" })
+      </div>
+    }
+  </div>
+</section>
+
+<!-- Featured Categories -->
+<section id="categories" style="background: var(--bg-soft); margin: 48px -50vw 0; padding: 56px 50vw">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 40px; font-size: 28px">Shop by Category</h2>
+    <div class="grid grid-2" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))">
+      <div class="card" style="text-align: center;">
+        @Html.ActionLink("", "Shop", "Home", new { category = "Personal Care" }, new { style = "display: block; text-decoration: none; color: inherit;" })
+        <div style="font-size: 48px; margin-bottom: 16px">🧴</div>
+        <h3>Personal Care</h3>
+        <p style="color: var(--muted); margin: 8px 0 0">Toothbrushes, shampoo bars, skincare</p>
+        </a>
+      </div>
+      <div class="card" style="text-align: center;">
+        @Html.ActionLink("", "Shop", "Home", new { category = "Kitchen" }, new { style = "display: block; text-decoration: none; color: inherit;" })
+        <div style="font-size: 48px; margin-bottom: 16px">🍽️</div>
+        <h3>Kitchen & Dining</h3>
+        <p style="color: var(--muted); margin: 8px 0 0">Reusable containers, bottles, utensils</p>
+        </a>
+      </div>
+      <div class="card" style="text-align: center;">
+        @Html.ActionLink("", "Shop", "Home", new { category = "Cleaning" }, new { style = "display: block; text-decoration: none; color: inherit;" })
+        <div style="font-size: 48px; margin-bottom: 16px">🧽</div>
+        <h3>Cleaning</h3>
+        <p style="color: var(--muted); margin: 8px 0 0">Eco sponges, natural detergents</p>
+        </a>
+      </div>
+      <div class="card" style="text-align: center;">
+        @Html.ActionLink("", "Shop", "Home", new { category = "Office" }, new { style = "display: block; text-decoration: none; color: inherit;" })
+        <div style="font-size: 48px; margin-bottom: 16px">📝</div>
+        <h3>Office & Study</h3>
+        <p style="color: var(--muted); margin: 8px 0 0">Recycled notebooks, bamboo pens</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cart Sidebar -->
+<div class="overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h3 style="margin: 0">Shopping Cart</h3>
+    <button class="btn btn-ghost btn-sm" onclick="toggleCart()">✕</button>
+  </div>
+  <div id="cartItems">
+    <div style="padding: 40px 24px; text-align: center; color: var(--muted)">
+      Your cart is empty
+      <div style="margin-top: 16px">
+        <button class="btn btn-primary" onclick="toggleCart()">Continue Shopping</button>
+      </div>
+    </div>
+  </div>
+  <div class="cart-total">
+    <div style="display: flex; justify-content: space-between; margin-bottom: 16px">
+      <span>Subtotal:</span>
+      <span id="cartSubtotal" style="font-weight: 600">৳0</span>
+    </div>
+    <div style="display: flex; justify-content: space-between; margin-bottom: 16px; color: var(--muted); font-size: 13px">
+      <span>Plastic saved:</span>
+      <span id="cartImpact" style="color: var(--primary); font-weight: 600">0kg/month</span>
+    </div>
+    @Html.ActionLink("Checkout", "Checkout", "Orders", null, new { @class = "btn btn-primary", style = "width: 100%; justify-content: center; text-align: center; display: block;" })
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+  let cart = [];
+
+  // Helper functions
+  const $ = (q) => document.querySelector(q);
+
+  function showToast(message) {
+    const toast = $('#toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
+  }
+
+  // Cart functions
+  function toggleCart() {
+    const sidebar = $('#cartSidebar');
+    const overlay = $('#cartOverlay');
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('show');
+  }
+
+  function addToCart(productId) {
+    // In a real MVC app, you would make an AJAX call to add to cart
+    // For now, we'll just show a toast message
+    showToast('Item added to cart!');
+    
+    // Example AJAX call you might use:
+    // $.post('@Url.Action("AddToCart", "Cart")', { productId: productId }, function(data) {
+    //     if (data.success) {
+    //         updateCartUI();
+    //         showToast(data.message);
+    //     }
+    // });
+  }
+
+  function removeFromCart(productId) {
+    // Make AJAX call to remove from cart
+    // $.post('@Url.Action("RemoveFromCart", "Cart")', { productId: productId }, function(data) {
+    //     updateCartUI();
+    // });
+  }
+
+  function updateQuantity(productId, quantity) {
+    // Make AJAX call to update quantity
+    // $.post('@Url.Action("UpdateQuantity", "Cart")', { productId: productId, quantity: quantity }, function(data) {
+    //     updateCartUI();
+    // });
+  }
+
+  // Close cart when clicking outside
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.cart-sidebar') && !e.target.closest('.cart-btn')) {
+      $('#cartSidebar').classList.remove('open');
+      $('#cartOverlay').classList.remove('show');
+    }
+  });
+
+  // Auto-submit search form on input
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.querySelector('input[name="searchTerm"]');
+    if (searchInput) {
+      let timeout;
+      searchInput.addEventListener('input', function() {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          this.form.submit();
+        }, 500); // Wait 500ms after user stops typing
       });
-      
-      $('#productCount').textContent = products.length;
     }
-
-    function filterProducts() {
-      const search = $('#searchProducts').value.toLowerCase().trim();
-      const category = $('#categoryFilter').value;
-      const priceRange = $('#priceFilter').value;
-      const sort = $('#sortFilter').value;
-
-      let filtered = [...PRODUCTS];
-
-      // Apply active tag filters
-      if (!activeFilters.has('all')) {
-        filtered = filtered.filter(p => {
-          return Array.from(activeFilters).some(filter => {
-            switch(filter) {
-              case 'bestseller': return p.tags.includes('bestseller');
-              case 'new': return p.tags.includes('new');
-              case 'local': return p.tags.includes('local');
-              case 'high-impact': return p.impactKg >= 0.5;
-              case 'budget': return p.price <= 500;
-              default: return false;
-            }
-          });
-        });
-      }
-
-      // Apply search
-      if (search) {
-        filtered = filtered.filter(p => 
-          p.name.toLowerCase().includes(search) || 
-          p.description.toLowerCase().includes(search) ||
-          p.category.toLowerCase().includes(search)
-        );
-      }
-
-      // Apply category filter
-      if (category) {
-        filtered = filtered.filter(p => p.category === category);
-      }
-
-      // Apply price filter
-      if (priceRange) {
-        filtered = filtered.filter(p => {
-          switch(priceRange) {
-            case '0-500': return p.price <= 500;
-            case '500-1000': return p.price > 500 && p.price <= 1000;
-            case '1000-2000': return p.price > 1000 && p.price <= 2000;
-            case '2000+': return p.price > 2000;
-            default: return true;
-          }
-        });
-      }
-
-      // Apply sorting
-      switch(sort) {
-        case 'price-low': filtered.sort((a, b) => a.price - b.price); break;
-        case 'price-high': filtered.sort((a, b) => b.price - a.price); break;
-        case 'rating': filtered.sort((a, b) => b.rating - a.rating); break;
-        case 'impact': filtered.sort((a, b) => b.impactKg - a.impactKg); break;
-        default: break;
-      }
-
-      filteredProducts = filtered;
-      renderProducts(filtered);
-      
-      // Update filter status
-      const filterCount = [search, category, priceRange].filter(Boolean).length + (activeFilters.size > 1 || !activeFilters.has('all') ? 1 : 0);
-      $('#filterStatus').textContent = filterCount > 0 ? `• ${filterCount} filter${filterCount > 1 ? 's' : ''} applied` : '';
-    }
-
-    function toggleFilter(element, filterType) {
-      if (filterType === 'all') {
-        activeFilters.clear();
-        activeFilters.add('all');
-        document.querySelectorAll('.filter-tag').forEach(tag => tag.classList.remove('active'));
-        element.classList.add('active');
-      } else {
-        activeFilters.delete('all');
-        document.querySelector('.filter-tag').classList.remove('active'); // Remove 'all' active state
-        
-        if (activeFilters.has(filterType)) {
-          activeFilters.delete(filterType);
-          element.classList.remove('active');
-        } else {
-          activeFilters.add(filterType);
-          element.classList.add('active');
-        }
-        
-        if (activeFilters.size === 0) {
-          activeFilters.add('all');
-          document.querySelector('.filter-tag').classList.add('active');
-        }
-      }
-      filterProducts();
-    }
-
-    function clearFilters() {
-      $('#searchProducts').value = '';
-      $('#categoryFilter').value = '';
-      $('#priceFilter').value = '';
-      $('#sortFilter').value = 'featured';
-      
-      activeFilters.clear();
-      activeFilters.add('all');
-      document.querySelectorAll('.filter-tag').forEach(tag => tag.classList.remove('active'));
-      document.querySelector('.filter-tag').classList.add('active');
-      
-      filterProducts();
-    }
-
-    function filterByCategory(category) {
-      $('#categoryFilter').value = category;
-      filterProducts();
-      document.querySelector('#products').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function viewProduct(productId) {
-      const product = PRODUCTS.find(p => p.id === productId);
-      alert(`Product Details:\n\n${product.name}\n${product.description}\n\nPrice: ৳${product.price.toLocaleString()}\nRating: ${product.rating}/5 (${product.reviews} reviews)\nEnvironmental Impact: Saves ${product.impactKg}kg plastic per month`);
-    }
-
-    // Auth functions
-    function openAuth(mode) {
-      alert(`${mode === 'signup' ? 'Sign up' : 'Log in'} feature coming soon!`);
-    }
-
-    function closeAuth() {
-      // Auth dialog functionality
-    }
-
-    // Initialize page
-    function init() {
-      renderProducts();
-      updateCartUI();
-    }
-
-    // Run initialization
-    init();
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-
-    // Close cart when clicking outside
-    document.addEventListener('click', function(e) {
-      if (!e.target.closest('.cart-sidebar') && !e.target.closest('.cart-btn')) {
-        $('#cartSidebar').classList.remove('open');
-        $('#cartOverlay').classList.remove('show');
-      }
-    });
-  </script>
+  });
+</script>

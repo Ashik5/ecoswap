@@ -1,245 +1,264 @@
-﻿
-  <main id="home" class="container">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-grid">
-        <div>
-          <div class="kicker">Sustainable choices, measurable impact</div>
-          <h1>Find eco‑friendly alternatives, track your impact, inspire your community</h1>
-          <p class="lead">Built to support university and local communities with credible, locally relevant sustainability guidance.</p>
-          <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
-            <a class="btn btn-primary" href="#alternatives">Browse Alternatives</a>
-            <a class="btn btn-ghost" href="#calculator">Try Calculator</a>
-          </div>
-        </div>
-        <div class="hero-card" aria-label="Quick platform metrics">
-          <div class="grid grid-2" style="gap: 16px">
-            <div class="card">
-              <div class="body" style="padding: 20px">
-                <div class="tag">Impact</div>
-                <h3>Weekly plastic tracking</h3>
-                <div class="muted">Calculate and reduce your plastic footprint with smart swaps.</div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="body" style="padding: 20px">
-                <div class="tag">Community</div>
-                <h3>Peer suggestions</h3>
-                <div class="muted">Discover alternatives from students and locals near you.</div>
-              </div>
-            </div>
-          </div>
-          <div class="hero-metrics">
-            <div class="metric">
-              <div class="num" id="m-products">120+</div>
-              <div class="muted">Alt. Products</div>
-            </div>
-            <div class="metric">
-              <div class="num" id="m-saved">~3.2kg</div>
-              <div class="muted">Plastic saved / mo</div>
-            </div>
-            <div class="metric">
-              <div class="num">AUST</div>
-              <div class="muted">Campus pilot</div>
-            </div>
-          </div>
+﻿<main id="home" class="container">
+  <!-- Hero -->
+  <section class="hero container">
+    <div class="hero-grid">
+      <div>
+        <div class="kicker">Sustainable choices, measurable impact</div>
+        <h1>Find eco‑friendly alternatives, track your impact, inspire your community</h1>
+        <p class="lead">Built to support university and local communities with credible, locally relevant sustainability
+          guidance.</p>
+        <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+          <a class="btn btn-primary" href="#alternatives">Browse Alternatives</a>
+          <a class="btn btn-ghost" href="#calculator">Try Calculator</a>
         </div>
       </div>
-    </section>
-
-    <!-- Features -->
-    <section id="features" style="background: var(--bg-soft); margin: 0 -50vw; padding-left: 50vw; padding-right: 50vw">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Platform Features</h2>
-            <div class="section-desc">User management, product alternatives, impact calculator, community reviews, and admin moderation.</div>
-          </div>
-          <a class="btn btn-primary" href="#alternatives">Get started →</a>
-        </div>
-        <div class="grid grid-3">
-          <article class="card">
-            <div class="body">
-              <div class="tag">User</div>
-              <h3>Secure Accounts</h3>
-              <p class="muted">Role‑based access, profile reputation, saved items, and notifications.</p>
-            </div>
-          </article>
-          <article class="card">
-            <div class="body">
-              <div class="tag">Products</div>
-              <h3>Eco Alternatives</h3>
-              <p class="muted">Database of sustainable swaps with local availability and community suggestions.</p>
-            </div>
-          </article>
-          <article class="card">
-            <div class="body">
+      <div class="hero-card" aria-label="Quick platform metrics">
+        <div class="grid grid-2" style="gap: 16px">
+          <div class="card">
+            <div class="body" style="padding: 20px">
               <div class="tag">Impact</div>
-              <h3>Calculator</h3>
-              <p class="muted">Track plastic/waste savings and see personal impact over time.</p>
+              <h3>Weekly plastic tracking</h3>
+              <div class="muted">Calculate and reduce your plastic footprint with smart swaps.</div>
             </div>
-          </article>
-          <article class="card">
-            <div class="body">
+          </div>
+          <div class="card">
+            <div class="body" style="padding: 20px">
               <div class="tag">Community</div>
-              <h3>Ideas & Reviews</h3>
-              <p class="muted">Comment, upvote/downvote, post anonymously with safeguards.</p>
+              <h3>Peer suggestions</h3>
+              <div class="muted">Discover alternatives from students and locals near you.</div>
             </div>
-          </article>
-          <article class="card">
-            <div class="body">
-              <div class="tag">Search</div>
-              <h3>Advanced Discovery</h3>
-              <p class="muted">Filter by category, material, price, and local store availability.</p>
-            </div>
-          </article>
-          <article class="card">
-            <div class="body">
-              <div class="tag">Admin</div>
-              <h3>Moderation</h3>
-              <p class="muted">Abuse reporting, content review queues, and reputation‑aware filtering.</p>
-            </div>
-          </article>
+          </div>
+        </div>
+        <div class="hero-metrics">
+          <div class="metric">
+            <div class="num" id="m-products">120+</div>
+            <div class="muted">Alt. Products</div>
+          </div>
+          <div class="metric">
+            <div class="num" id="m-saved">~3.2kg</div>
+            <div class="muted">Plastic saved / mo</div>
+          </div>
+          <div class="metric">
+            <div class="num">AUST</div>
+            <div class="muted">Campus pilot</div>
+          </div>
         </div>
       </div>
-    </section>
-
-    <!-- Alternatives / Products -->
-    <section id="alternatives">
+    </div>
+  </section>
+  <!-- Features -->
+  <section id="features" style="background: var(--bg-soft); margin: 0 -50vw; padding-left: 50vw; padding-right: 50vw">
+    <div class="container">
       <div class="section-head">
         <div>
-          <h2>Find Sustainable Alternatives</h2>
-          <div class="section-desc">Search and compare eco‑friendly options for everyday items.</div>
+          <h2>Platform Features</h2>
+          <div class="section-desc">User management, product alternatives, impact calculator, community reviews, and
+            admin moderation.</div>
         </div>
-        <div class="search-controls">
-          <input type="text" id="search" placeholder="Search alternatives..." oninput="filterProducts()" aria-label="Search alternatives" />
-          <select id="category" onchange="filterProducts()" aria-label="Filter by category">
-            <option value="">All categories</option>
-            <option>Personal Care</option>
-            <option>Kitchen</option>
-            <option>Cleaning</option>
-          </select>
-        </div>
+        <a class="btn btn-primary" href="#alternatives">Get started →</a>
       </div>
+      <div class="grid grid-3">
+        <article class="card">
+          <div class="body">
+            <div class="tag">User</div>
+            <h3>Secure Accounts</h3>
+            <p class="muted">Role‑based access, profile reputation, saved items, and notifications.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="body">
+            <div class="tag">Products</div>
+            <h3>Eco Alternatives</h3>
+            <p class="muted">Database of sustainable swaps with local availability and community suggestions.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="body">
+            <div class="tag">Impact</div>
+            <h3>Calculator</h3>
+            <p class="muted">Track plastic/waste savings and see personal impact over time.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="body">
+            <div class="tag">Community</div>
+            <h3>Ideas & Reviews</h3>
+            <p class="muted">Comment, upvote/downvote, post anonymously with safeguards.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="body">
+            <div class="tag">Search</div>
+            <h3>Advanced Discovery</h3>
+            <p class="muted">Filter by category, material, price, and local store availability.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="body">
+            <div class="tag">Admin</div>
+            <h3>Moderation</h3>
+            <p class="muted">Abuse reporting, content review queues, and reputation‑aware filtering.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-      <div id="productGrid" class="grid grid-3"></div>
-    </section>
-
-    <!-- Impact Calculator -->
-    <section id="calculator">
+  <!-- Featured Products -->
+  <section id="featured-products">
+    <div class="container">
       <div class="section-head">
         <div>
-          <h2>Impact Calculator</h2>
-          <div class="section-desc">Estimate your monthly plastic savings by switching to reusable or low‑waste alternatives.</div>
+          <h2>Featured Products</h2>
+          <div class="section-desc">Handpicked for their quality and impact.</div>
+        </div>
+        <div class="slider-nav">
+          <button class="slider-btn prev-btn">←</button>
+          <button class="slider-btn next-btn">→</button>
         </div>
       </div>
+      <div class="slider-container">
+        <div class="slider">
+          @foreach (var product in ViewBag.FeaturedProducts)
+          {
+            <div class="slide">
+              <div class="card">
+                <a href="@Url.Action("Details", "Home", new { id = product.Id })"
+                  style="text-decoration: none; color: inherit;">
+                  <img src="/images/@product.ImageFileName" class="product-image" alt="@product.Name" />
+                </a>
+                <div class="body">
+                  <h3>@product.Name</h3>
+                  <p class="muted">@product.Category</p>
+                  <div class="price">৳@product.Price.ToString("N0")</div>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Alternatives / Products -->
+  <section id="alternatives">
+    <div class="section-head">
+      <div>
+        <h2>Find Sustainable Alternatives</h2>
+        <div class="section-desc">Search and compare eco‑friendly options for everyday items.</div>
+      </div>
+      <div class="search-controls">
+        <input type="text" id="search" placeholder="Search alternatives..." oninput="filterProducts()"
+          aria-label="Search alternatives" />
+        <select id="category" onchange="filterProducts()" aria-label="Filter by category">
+          <option value="">All categories</option>
+          <option>Personal Care</option>
+          <option>Kitchen</option>
+          <option>Cleaning</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="productGrid" class="grid grid-3"></div>
+  </section>
+
+
+  <!-- Local Availability -->
+  <section id="local" style="background: var(--bg-soft); margin: 0 -50vw; padding-left: 50vw; padding-right: 50vw">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Local Availability</h2>
+          <div class="section-desc">Find nearby stores and campus vendors offering sustainable products.</div>
+        </div>
+      </div>
       <div class="card">
         <div class="body">
-          <div class="calc">
-            <div class="grid grid-3">
-              <div class="field">
-                <label for="bottles">Plastic bottles per week</label>
-                <input type="number" id="bottles" min="0" value="5" oninput="calcImpact()" />
-              </div>
-              <div class="field">
-                <label for="bags">Plastic bags per week</label>
-                <input type="number" id="bags" min="0" value="7" oninput="calcImpact()" />
-              </div>
-              <div class="field">
-                <label for="straws">Straws per week</label>
-                <input type="number" id="straws" min="0" value="3" oninput="calcImpact()" />
-              </div>
+          <div class="grid grid-2">
+            <div class="field">
+              <label for="location">Area or campus</label>
+              <input id="location" placeholder="e.g., Tejgaon, AUST Campus" />
             </div>
             <div class="field">
-              <label for="adoption">Swap adoption rate</label>
-              <input type="range" id="adoption" min="0" max="100" value="60" oninput="adoptionOut.textContent=this.value+'%'; calcImpact()" />
-              <div class="muted">Estimated adoption: <b id="adoptionOut">60%</b></div>
-            </div>
-            <div class="result">
-              <div>
-                <div class="muted">Estimated monthly plastic saved</div>
-                <div class="num" id="plasticSaved" style="font-size: 32px; font-weight: 800; color: var(--primary)">–</div>
-              </div>
-              <button class="btn btn-primary" onclick="saveEstimate()">Save to Profile</button>
+              <label for="item">Item</label>
+              <input id="item" placeholder="e.g., bamboo toothbrush" />
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Community -->
-    <section id="community">
-      <div class="section-head">
-        <div>
-          <h2>Community Suggestions</h2>
-          <div class="section-desc">Share swaps, review products, and upvote helpful posts. Anonymous posting is supported.</div>
-        </div>
-        <button class="btn btn-primary" onclick="openPostDialog()">+ New Post</button>
-      </div>
-
-      <div class="card">
-        <div id="postList" aria-live="polite">
-          <!-- posts inserted by JS -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Local Availability -->
-    <section id="local" style="background: var(--bg-soft); margin: 0 -50vw; padding-left: 50vw; padding-right: 50vw">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Local Availability</h2>
-            <div class="section-desc">Find nearby stores and campus vendors offering sustainable products.</div>
+          <div style="margin-top: 16px; display: flex; gap: 12px">
+            <button class="btn btn-primary" onclick="searchLocal()">Search</button>
+            <button class="btn btn-ghost" onclick="clearLocal()">Clear</button>
           </div>
-        </div>
-        <div class="card">
-          <div class="body">
-            <div class="grid grid-2">
-              <div class="field">
-                <label for="location">Area or campus</label>
-                <input id="location" placeholder="e.g., Tejgaon, AUST Campus" />
-              </div>
-              <div class="field">
-                <label for="item">Item</label>
-                <input id="item" placeholder="e.g., bamboo toothbrush" />
-              </div>
-            </div>
-            <div style="margin-top: 16px; display: flex; gap: 12px">
-              <button class="btn btn-primary" onclick="searchLocal()">Search</button>
-              <button class="btn btn-ghost" onclick="clearLocal()">Clear</button>
-            </div>
-            <div id="localResults" style="margin-top: 20px" class="muted">Enter location and item to search for local availability.</div>
-          </div>
+          <div id="localResults" style="margin-top: 20px" class="muted">Enter location and item to search for local
+            availability.</div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+</main>
 
-    <!-- Admin -->
-    <section id="admin">
-      <div class="section-head">
-        <div>
-          <h2>Admin Moderation</h2>
-          <div class="section-desc">Review reported posts and manage product suggestions.</div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="body">
-          <h3 style="margin: 0 0 16px">Reports Queue</h3>
-          <table aria-label="Reports table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Type</th>
-                <th>Reason</th>
-                <th>Submitted</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody id="reportsTable"></tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-  </main>
+<style>
+  .slider-container {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  .slider-container::-webkit-scrollbar {
+    display: none;
+    /* Safari and Chrome */
+  }
+
+  .slider {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 20px;
+  }
+
+  .slide {
+    flex: 0 0 calc(100% / 3 - 20px * 2 / 3);
+    scroll-snap-align: start;
+  }
+
+  .slider-nav {
+    display: flex;
+    gap: 12px;
+  }
+
+  .slider-btn {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .slider-btn:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+  }
+
+  .product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+
+  @@media (max-width: 960px) {
+    .slide {
+      flex: 0 0 calc(100% / 2 - 20px / 2);
+    }
+  }
+
+  @@media (max-width: 640px) {
+    .slide {
+      flex: 0 0 100%;
+    }
+  }
+</style>
+

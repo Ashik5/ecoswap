@@ -1,24 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "F:\\3.2\\New folder\\ecoswap\\EcoSwap.csproj": {}
+    "/Users/ashikmahmud/Documents/development/web development/EcoSwap/EcoSwap.csproj": {}
   },
   "projects": {
-    "F:\\3.2\\New folder\\ecoswap\\EcoSwap.csproj": {
+    "/Users/ashikmahmud/Documents/development/web development/EcoSwap/EcoSwap.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\3.2\\New folder\\ecoswap\\EcoSwap.csproj",
+        "projectUniqueName": "/Users/ashikmahmud/Documents/development/web development/EcoSwap/EcoSwap.csproj",
         "projectName": "EcoSwap",
-        "projectPath": "F:\\3.2\\New folder\\ecoswap\\EcoSwap.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "F:\\3.2\\New folder\\ecoswap\\obj\\",
+        "projectPath": "/Users/ashikmahmud/Documents/development/web development/EcoSwap/EcoSwap.csproj",
+        "packagesPath": "/Users/ashikmahmud/.nuget/packages/",
+        "outputPath": "/Users/ashikmahmud/Documents/development/web development/EcoSwap/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/ashikmahmud/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
@@ -40,6 +43,12 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -59,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
