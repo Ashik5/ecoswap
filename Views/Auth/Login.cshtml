@@ -1,0 +1,36 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Login - EcoSwap";
+}
+
+<main class="auth-container">
+    <section class="auth-card">
+        <h1 class="auth-title">Welcome Back</h1>
+        <p class="auth-subtitle">Log in to your EcoSwap account</p>
+
+        @if (TempData["Msg"] != null)
+        {
+            <div class="alert success">@TempData["Msg"]</div>
+        }
+
+        <form asp-controller="Auth" asp-action="Login" method="post" class="auth-form">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="••••••••" required />
+            </div>
+
+            <button type="submit" class="btn-primary">Log In</button>
+        </form>
+
+        <p class="switch-link">
+            Don't have an account? <a asp-controller="Auth" asp-action="Signup">Sign up</a>
+        </p>
+        <p class="back-home">
+            <a asp-controller="Home" asp-action="Index">← Back to Home</a>
+        </p>
+    </section>
+</main>
