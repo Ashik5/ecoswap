@@ -3,38 +3,99 @@
     ViewData["Title"] = "About • EcoSwap";
 }
 
-<main class="container" style="padding:48px 0;">
+<main class="container about-page" style="padding:48px 0;">
+
+  <style>
+    :root{
+      --bg: #ffffff;
+      --panel: #f8faf9;
+      --muted: #6b7280;
+      --text: #0f172a;
+      --primary: #06a66a;
+      --accent: #2563eb;
+      --radius: 12px;
+      --card-shadow: 0 8px 28px rgba(16,24,40,0.06);
+    }
+
+    /* reset small things for this view */
+    .about-page img{display:block;max-width:100%;height:auto}
+    .kicker{color:var(--primary);font-weight:700;letter-spacing:0.6px;text-transform:uppercase;font-size:12px}
+    h1{font-size:clamp(28px,4vw,36px);margin:10px 0 12px;color:var(--text)}
+    .lead{color:var(--muted);font-size:15px;line-height:1.55}
+    .btn{font-weight:600;border-radius:10px;padding:10px 16px;border:0;cursor:pointer}
+    .btn-primary{background:var(--primary);color:#fff}
+    .btn-ghost{background:transparent;border:1px solid rgba(16,24,40,0.06);color:var(--text)}
+
+    /* Hero */
+    .about-hero{display:flex;gap:28px;align-items:center;margin-bottom:36px;flex-wrap:wrap}
+    .about-hero .card{border-radius:14px;padding:18px;background:linear-gradient(180deg,#fff,#fbfdfa);box-shadow:var(--card-shadow);border:1px solid rgba(16,24,40,0.03)}
+
+    /* Cards & layout */
+    .section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
+    .section-desc{color:var(--muted);margin-top:6px;max-width:720px}
+    .card{background:#fff;border-radius:12px;border:1px solid rgba(16,24,40,0.04);box-shadow:0 6px 20px rgba(12,18,30,0.03);padding:18px}
+    .grid{display:grid;gap:16px}
+    .team-grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:18px}
+
+    .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:#ecfdf3;color:var(--primary);font-weight:700;font-size:11px}
+
+    /* Team card */
+    .team-card{text-align:center;overflow:hidden;transition:transform .28s cubic-bezier(.2,.9,.2,1),box-shadow .28s}
+    .team-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(16,24,40,0.08)}
+    .team-card img{width:96px;height:96px;border-radius:14px;object-fit:cover;margin:12px auto 6px;transition:transform .4s}
+    .team-card:hover img{transform:scale(1.04)}
+
+    /* CTA */
+    .cta-card{display:inline-block;padding:28px 40px;border-radius:16px;background:linear-gradient(180deg,#fff,#fbfffb);box-shadow:var(--card-shadow)}
+
+    /* reveal animations (initial state) */
+    .reveal{opacity:0;transform:translateY(14px);transition:transform .6s cubic-bezier(.2,.9,.2,1),opacity .6s ease}
+    /* when visible */
+    .reveal.in-view{opacity:1;transform:none}
+
+    /* stagger variable (use --d in elements to delay) */
+    .reveal{transition-delay:var(--d,0s)}
+
+    /* little floating accent for the impact badge */
+    .impact-badge{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,#dff8ec,#e6f0ff);color:var(--primary);font-weight:700;animation:float 4s ease-in-out infinite}
+    @@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+
+    /* responsive tweaks */
+    @@media (max-width:900px){
+      .about-hero{flex-direction:column-reverse;align-items:stretch}
+      .about-hero > div{width:100%}
+    }
+  </style>
 
   <!-- Hero -->
-  <section class="about-hero" style="display:flex; gap:28px; align-items:center; margin-bottom:36px; flex-wrap:wrap;">
-    <div style="flex:1; min-width:280px">
+  <section class="about-hero">
+    <div class="reveal" style="--d:.05s; flex:1; min-width:380px">
       <div class="kicker">About EcoSwap</div>
-      <h1 style="margin:10px 0 12px; font-size:34px; line-height:1.06;">We make sustainable choices easy and local</h1>
-      <p class="lead" style="max-width:720px; color:var(--text-secondary);">
+      <h1>We make sustainable choices easy and local</h1>
+      <p class="lead">
         EcoSwap helps students and communities discover sustainable, affordable alternatives, measure their impact,
         and support local vendors — all in one place.
       </p>
-      <div style="margin-top:18px;">
+      <div style="margin-top:18px; display:flex; gap:10px; flex-wrap:wrap;">
         <a class="btn btn-primary" href="#mission">Our Mission</a>
-        <a class="btn btn-ghost" href="/Auth/Signup" style="margin-left:10px">Join Us</a>
+        <a class="btn btn-ghost" href="/Auth/Signup" style="margin-left:6px">Join Us</a>
       </div>
     </div>
 
-    <div style="width:360px; min-width:240px;">
-      <div class="card" style="padding:18px; border-radius:14px;">
+    <div class="reveal" style="--d:.12s; width:360px; min-width:240px;">
+      <div class="card">
         <h3 style="margin:0 0 8px">Quick Stats</h3>
         <div style="display:flex; gap:12px; flex-direction:column;">
-          <div><strong>2,847kg</strong> plastic saved (community)</div>
-          <div><strong>120+</strong> alternatives curated</div>
-          <div><strong>AUST</strong> campus pilot</div>
-        </div>
+          <div><strong>2,847kg</strong> <span class="muted">plastic saved (community)</span></div>
+          <div><strong>120+</strong> <span class="muted">alternatives curated</span></div>
+         
       </div>
     </div>
   </section>
 
   <!-- Mission -->
-  <section id="mission" style="margin-bottom:36px">
-    <div class="section-head" style="align-items:flex-start">
+  <section id="mission" style="margin-bottom:36px" class="reveal" data-delay="0.18s">
+    <div class="section-head">
       <div>
         <h2>Our mission</h2>
         <div class="section-desc">Small daily swaps add up. We make it easy by listing verified alternatives, tracking estimated waste savings, and building community awareness.</div>
@@ -42,56 +103,53 @@
     </div>
 
     <div style="display:grid; gap:16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top:20px">
-      <div class="card">
-        <div class="body">
-          <div class="tag">Accessible</div>
-          <h3>Clear guidance</h3>
-          <p class="muted">Simple product comparisons and local availability information for real-world adoption.</p>
-        </div>
+      <div class="card reveal" style="--d:.22s">
+        <div class="tag">Accessible</div>
+        <h3 style="margin-top:8px">Clear guidance</h3>
+        <p class="muted">Simple product comparisons and local availability information for real-world adoption.</p>
       </div>
-      <div class="card">
-        <div class="body">
-          <div class="tag">Community</div>
-          <h3>Peer-powered</h3>
-          <p class="muted">Students and locals share tips, upvote helpful swaps, and report availability.</p>
-        </div>
+      <div class="card reveal" style="--d:.26s">
+        <div class="tag">Community</div>
+        <h3 style="margin-top:8px">Peer-powered</h3>
+        <p class="muted">Students and locals share tips, upvote helpful swaps, and report availability.</p>
       </div>
-      <div class="card">
-        <div class="body">
-          <div class="tag">Impact</div>
-          <h3>Measure change</h3>
-          <p class="muted">Calculator estimates monthly plastic savings so users can track progress.</p>
-        </div>
+      <div class="card reveal" style="--d:.30s">
+        <div class="tag">Impact</div>
+        <h3 style="margin-top:8px">Measure change</h3>
+        <p class="muted">Calculator estimates monthly plastic savings so users can track progress.</p>
       </div>
     </div>
   </section>
 
   <!-- Team -->
   <section style="margin-bottom:36px">
-    <h2>Meet the team</h2>
-    <p class="muted">A small interdisciplinary team building EcoSwap for campus pilots and community use.</p>
+    <h2 class="reveal" style="--d:.34s">Meet the team</h2>
+    <p class="muted reveal" style="--d:.36s">A small interdisciplinary team building EcoSwap for campus pilots and community use.</p>
 
-    <div class="team-grid" style="display:grid; gap:18px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top:18px;">
-      <div class="card" style="text-align:center;">
-        <img src="@Url.Content("~/images/team1.jpg")" alt="Team member" style="width:96px;height:96px;border-radius:14px; object-fit:cover; margin:auto; display:block;" />
+    <div class="team-grid">
+      <div class="card team-card reveal" style="--d:.38s">
+        <img src="@Url.Content("~/images/auloy.jpg")" alt="Nasidur Rahman"
+             onerror="this.onerror=null;this.src='@Url.Content("~/images/placeholder.jpg")';" />
         <div class="body">
           <h4 style="margin:10px 0 4px">Nasidur Rahman</h4>
           <div class="muted">Founder & Product</div>
         </div>
       </div>
 
-      <div class="card" style="text-align:center;">
-        <img src="@Url.Content("~/images/team2.jpg")" alt="Team member" style="width:96px;height:96px;border-radius:14px; object-fit:cover; margin:auto; display:block;" />
+      <div class="card team-card reveal" style="--d:.42s">
+        <img src="@Url.Content("~/images/antik.jpg")" alt="Antik Dhar"
+             onerror="this.onerror=null;this.src='@Url.Content("~/images/placeholder.jpg")';" />
         <div class="body">
-          <h4 style="margin:10px 0 4px">A. Khan</h4>
+          <h4 style="margin:10px 0 4px">Antik Dhar</h4>
           <div class="muted">Engineering</div>
         </div>
       </div>
 
-      <div class="card" style="text-align:center;">
-        <img src="@Url.Content("~/images/team3.jpg")" alt="Team member" style="width:96px;height:96px;border-radius:14px; object-fit:cover; margin:auto; display:block;" />
+      <div class="card team-card reveal" style="--d:.46s">
+        <img src="@Url.Content("~/images/ashik.jpeg")" alt="Ashik Mahmud"
+             onerror="this.onerror=null;this.src='@Url.Content("~/images/placeholder.jpg")';" />
         <div class="body">
-          <h4 style="margin:10px 0 4px">M. Sultana</h4>
+          <h4 style="margin:10px 0 4px">Ashik Mahmud</h4>
           <div class="muted">Community & Outreach</div>
         </div>
       </div>
@@ -99,8 +157,8 @@
   </section>
 
   <!-- CTA -->
-  <section style="text-align:center; margin-top:32px;">
-    <div class="card" style="display:inline-block; padding:28px 40px; border-radius:16px;">
+  <section style="text-align:center; margin-top:32px;" class="reveal" style="--d:.5s">
+    <div class="cta-card">
       <h3 style="margin:0 0 8px">Ready to reduce your plastic footprint?</h3>
       <p class="muted" style="margin:0 0 12px">Join the campus pilot, suggest local swaps, or browse our shop.</p>
       <div style="display:flex; gap:12px; justify-content:center;">
@@ -109,5 +167,41 @@
       </div>
     </div>
   </section>
+
+  <!-- small scripts to trigger reveal animation + ensure image fallback -->
+  <script>
+    (function(){
+      const placeholder = '@Url.Content("~/images/placeholder.jpg")';
+
+      // ensure any <img> has fallback in case onerror attr missed it
+      document.querySelectorAll('img').forEach(img=>{
+        img.addEventListener('error', () => {
+          if (img.src.indexOf(placeholder) === -1) img.src = placeholder;
+        });
+      });
+
+      // Reveal on scroll using IntersectionObserver
+      const reveals = Array.from(document.querySelectorAll('.reveal'));
+      if ('IntersectionObserver' in window && reveals.length) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const el = entry.target;
+              // use custom delay from CSS var if present
+              requestAnimationFrame(()=> {
+                el.classList.add('in-view');
+              });
+              io.unobserve(el);
+            }
+          });
+        }, {root: null, rootMargin: '0px 0px -8% 0px', threshold: 0.08});
+
+        reveals.forEach(r => io.observe(r));
+      } else {
+        // fallback: reveal all
+        reveals.forEach(r => r.classList.add('in-view'));
+      }
+    })();
+  </script>
 
 </main>

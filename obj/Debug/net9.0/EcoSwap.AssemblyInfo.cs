@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EcoSwap")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b95d92c5dd60c482e93ea6e6c47ab86092d88c0a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2befe5a1e1322e6d91b1940454d4c88064d6d9ed")]
 [assembly: System.Reflection.AssemblyProductAttribute("EcoSwap")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EcoSwap")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
