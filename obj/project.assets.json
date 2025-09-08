@@ -8,19 +8,19 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Auloy\\.nuget\\packages\\": {}
+    "/Users/ashikmahmud/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\sd_3.2\\EcoSwap\\EcoSwap.csproj",
+      "projectUniqueName": "/Users/ashikmahmud/Documents/development/web development/EcoSwap/EcoSwap.csproj",
       "projectName": "EcoSwap",
-      "projectPath": "D:\\sd_3.2\\EcoSwap\\EcoSwap.csproj",
-      "packagesPath": "C:\\Users\\Auloy\\.nuget\\packages\\",
-      "outputPath": "D:\\sd_3.2\\EcoSwap\\obj\\",
+      "projectPath": "/Users/ashikmahmud/Documents/development/web development/EcoSwap/EcoSwap.csproj",
+      "packagesPath": "/Users/ashikmahmud/.nuget/packages/",
+      "outputPath": "/Users/ashikmahmud/Documents/development/web development/EcoSwap/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Auloy\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/ashikmahmud/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -68,7 +68,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.304/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
