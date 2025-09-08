@@ -25,7 +25,6 @@
 /Users/ashikmahmud/Documents/development/web development/EcoSwap/obj/Debug/net9.0/compressed/0q7q1lqc5w-lugek5hnai.gz
 /Users/ashikmahmud/Documents/development/web development/EcoSwap/obj/Debug/net9.0/compressed/1zn9tlc69z-9po7kluib0.gz
 /Users/ashikmahmud/Documents/development/web development/EcoSwap/obj/Debug/net9.0/compressed/ez0rta393e-61n19gt1b8.gz
-/Users/ashikmahmud/Documents/development/web development/EcoSwap/obj/Debug/net9.0/compressed/g7ikkgqxxm-1qnc6z9y5o.gz
 /Users/ashikmahmud/Documents/development/web development/EcoSwap/obj/Debug/net9.0/compressed/hqmsb0epv5-bqjiyaj88i.gz
 /Users/ashikmahmud/Documents/development/web development/EcoSwap/obj/Debug/net9.0/compressed/b6rx8uvf5z-c2jlpeoesf.gz
 /Users/ashikmahmud/Documents/development/web development/EcoSwap/obj/Debug/net9.0/compressed/7v9yquc1z1-erw9l3u2r3.gz
@@ -96,3 +95,7 @@
 /Users/ashikmahmud/Documents/development/web development/EcoSwap/obj/Debug/net9.0/EcoSwap.pdb
 /Users/ashikmahmud/Documents/development/web development/EcoSwap/obj/Debug/net9.0/EcoSwap.genruntimeconfig.cache
 /Users/ashikmahmud/Documents/development/web development/EcoSwap/obj/Debug/net9.0/ref/EcoSwap.dll
+/Users/ashikmahmud/Documents/development/web development/EcoSwap/bin/Debug/net9.0/Newtonsoft.Json.dll
+/Users/ashikmahmud/Documents/development/web development/EcoSwap/obj/Debug/net9.0/EcoSwap.csproj.AssemblyReference.cache
+/Users/ashikmahmud/Documents/development/web development/EcoSwap/obj/Debug/net9.0/compressed/g7ikkgqxxm-hsp251cdjl.gz
+/Users/ashikmahmud/Documents/development/web development/EcoSwap/obj/Debug/net9.0/EcoSwap.csproj.Up2Date
