@@ -1,3 +1,6 @@
+using EcoSwap.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDistributedMemoryCache();
@@ -7,7 +10,10 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
+builder.Services.AddDbContext<EcoSwapContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("EcoSwapContext")));
 builder.Services.AddAuthorization();
+
 
 var app = builder.Build();
 
