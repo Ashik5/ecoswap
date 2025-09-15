@@ -8,8 +8,7 @@
         <p class="lead">Built to support university and local communities with credible, locally relevant sustainability
           guidance.</p>
         <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
-          <a class="btn btn-primary" href="#alternatives">Browse Alternatives</a>
-          <a class="btn btn-ghost" href="#calculator">Try Calculator</a>
+          <a class="btn btn-primary" href="/home/shop">Browse Alternatives</a>
         </div>
       </div>
       <div class="hero-card" aria-label="Quick platform metrics">
@@ -139,61 +138,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Alternatives / Products -->
-  <section id="alternatives">
-    <div class="section-head">
-      <div>
-        <h2>Find Sustainable Alternatives</h2>
-        <div class="section-desc">Search and compare eco‑friendly options for everyday items.</div>
-      </div>
-      <div class="search-controls">
-        <input type="text" id="search" placeholder="Search alternatives..." oninput="filterProducts()"
-          aria-label="Search alternatives" />
-        <select id="category" onchange="filterProducts()" aria-label="Filter by category">
-          <option value="">All categories</option>
-          <option>Personal Care</option>
-          <option>Kitchen</option>
-          <option>Cleaning</option>
-        </select>
-      </div>
-    </div>
-
-    <div id="productGrid" class="grid grid-3"></div>
-  </section>
-
-
-  <!-- Local Availability -->
-  <section id="local" style="background: var(--bg-soft); margin: 0 -50vw; padding-left: 50vw; padding-right: 50vw">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2>Local Availability</h2>
-          <div class="section-desc">Find nearby stores and campus vendors offering sustainable products.</div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="body">
-          <div class="grid grid-2">
-            <div class="field">
-              <label for="location">Area or campus</label>
-              <input id="location" placeholder="e.g., Tejgaon, AUST Campus" />
-            </div>
-            <div class="field">
-              <label for="item">Item</label>
-              <input id="item" placeholder="e.g., bamboo toothbrush" />
-            </div>
-          </div>
-          <div style="margin-top: 16px; display: flex; gap: 12px">
-            <button class="btn btn-primary" onclick="searchLocal()">Search</button>
-            <button class="btn btn-ghost" onclick="clearLocal()">Clear</button>
-          </div>
-          <div id="localResults" style="margin-top: 20px" class="muted">Enter location and item to search for local
-            availability.</div>
-        </div>
-      </div>
-    </div>
-  </section>
 </main>
 
 <style>
@@ -261,4 +205,3 @@
     }
   }
 </style>
-

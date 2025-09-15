@@ -378,7 +378,7 @@
           • Free shipping on orders over ৳1,500</p>
       </div>
       <div style="display: flex; gap: 12px; align-items: center">
-        <span class="impact-badge">🌱 Collective Impact: 2,847kg plastic saved</span>
+        <span class="impact-badge">🌱 Collective Impact: @ViewBag.TotalImpact.ToString("N0")kg plastic saved</span>
       </div>
     </div>
 
@@ -490,9 +490,13 @@
             </div>
             
             <div style="display: flex; gap: 8px; margin-top: 16px">
-              <button class="btn btn-primary add-to-cart-btn" style="flex: 1; justify-content: center" data-product-id="@product.Id">
-                Add to Cart
-              </button>
+              @using (Html.BeginForm("AddToCart", "Cart", FormMethod.Post, new { style = "flex: 1;" }))
+              {
+                <input type="hidden" name="productId" value="@product.Id" />
+                <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center">
+                  Add to Cart
+                </button>
+              }
               <a href="@Url.Action("Details", "Home", new { id = product.Id })" class="btn btn-ghost btn-sm" title="View details">👁️</a>
             </div>
           </div>
@@ -515,7 +519,7 @@
 <!-- Featured Categories -->
 <section id="categories" style="background: var(--bg-soft); margin: 48px -50vw 0; padding: 56px 50vw">
   <div class="container">
-    <h2 style="text-align: center; margin-bottom: 40px; font-size: 28px">Shop by Category</h2>
+    <h2 style="text-align: center; margin-bottom: 40px; font-size: 28px">Product Categories</h2>
     <div class="grid grid-2" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))">
       <div class="card" style="text-align: center;">
         @Html.ActionLink("", "Shop", "Home", new { category = "Personal Care" }, new { style = "display: block; text-decoration: none; color: inherit;" })
@@ -580,74 +584,3 @@
 <!-- Toast -->
 <div class="toast" id="toast"></div>
 
-<script>
-  let cart = [];
-
-  // Helper functions
-  const $ = (q) => document.querySelector(q);
-
-  function showToast(message) {
-    const toast = $('#toast');
-    toast.textContent = message;
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 3000);
-  }
-
-  // Cart functions
-  function toggleCart() {
-    const sidebar = $('#cartSidebar');
-    const overlay = $('#cartOverlay');
-    sidebar.classList.toggle('open');
-    overlay.classList.toggle('show');
-  }
-
-  function addToCart(productId) {
-    // In a real MVC app, you would make an AJAX call to add to cart
-    // For now, we'll just show a toast message
-    showToast('Item added to cart!');
-    
-    // Example AJAX call you might use:
-    // $.post('@Url.Action("AddToCart", "Cart")', { productId: productId }, function(data) {
-    //     if (data.success) {
-    //         updateCartUI();
-    //         showToast(data.message);
-    //     }
-    // });
-  }
-
-  function removeFromCart(productId) {
-    // Make AJAX call to remove from cart
-    // $.post('@Url.Action("RemoveFromCart", "Cart")', { productId: productId }, function(data) {
-    //     updateCartUI();
-    // });
-  }
-
-  function updateQuantity(productId, quantity) {
-    // Make AJAX call to update quantity
-    // $.post('@Url.Action("UpdateQuantity", "Cart")', { productId: productId, quantity: quantity }, function(data) {
-    //     updateCartUI();
-    // });
-  }
-
-  // Close cart when clicking outside
-  document.addEventListener('click', function (e) {
-    if (!e.target.closest('.cart-sidebar') && !e.target.closest('.cart-btn')) {
-      $('#cartSidebar').classList.remove('open');
-      $('#cartOverlay').classList.remove('show');
-    }
-  });
-
-  // Auto-submit search form on input
-  document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.querySelector('input[name="searchTerm"]');
-    if (searchInput) {
-      let timeout;
-      searchInput.addEventListener('input', function() {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-          this.form.submit();
-        }, 500); // Wait 500ms after user stops typing
-      });
-    }
-  });
-</script>

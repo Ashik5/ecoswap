@@ -1,4 +1,19 @@
+using EcoSwap.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Cookies; // Added for cookie authentication
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Add authentication services
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Auth/Login";
+        options.AccessDeniedPath = "/Auth/AccessDenied"; // Added for unauthorized access
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+        options.SlidingExpiration = true;
+    });
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
@@ -7,7 +22,10 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
+builder.Services.AddDbContext<EcoSwapContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("EcoSwapContext")));
 builder.Services.AddAuthorization();
+
 
 var app = builder.Build();
 
@@ -23,6 +41,7 @@ app.UseHttpsRedirection();
 app.UseSession();
 app.UseRouting();
 
+app.UseAuthentication(); // Added authentication middleware
 app.UseAuthorization();
 
 app.MapStaticAssets();
